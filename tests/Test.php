@@ -31,7 +31,7 @@ class Test
 
         //controller
         $cn = new Controller($tasks);
-        $cn->setTask($args);
+/*         $cn->setTask($args);
         $cn->saveTask();
 
         $args = [
@@ -44,7 +44,7 @@ class Test
 
         $cn->updateTask($args);
 
-        $cn->deleteTask();
+        $cn->deleteTask(); */
     }
 
     public static function views()

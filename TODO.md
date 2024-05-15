@@ -7,3 +7,7 @@
 [ ] Json 
 [ ] Connect views to APIS
 
+
+
+  - Implementar una solución en la que instanciar los controladores antes de leer las rutas para evitar el uso de métodos estáticos.
+
