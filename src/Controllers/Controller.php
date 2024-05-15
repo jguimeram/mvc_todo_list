@@ -2,14 +2,19 @@
 
 namespace Debian\MvcTemplate\Controllers;
 
-use Debian\MvcTemplate\Models\Model;
 use Exception;
+use Debian\MvcTemplate\Models\Model;
+use Debian\MvcTemplate\Routes\Router;
 
 class Controller
 {
     protected array $task;
     protected $model;
 
+    public static function index(Router $router)
+    {
+        $router->render('home/index');
+    }
     public function __construct(Model $model)
     {
         $this->model = $model;
