@@ -1,0 +1,22 @@
+{
+    "name": "debian/mvc_template",
+    "type": "library",
+    "require-dev": {
+        "vlucas/phpdotenv": "^5.6",
+        "intervention/image": "^3.6"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Debian\\MvcTemplate\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jguimeram",
+            "email": "jguimera54@gmail.com"
+        }
+    ],
+    "require": {}
+}
