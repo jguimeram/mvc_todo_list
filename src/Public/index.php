@@ -1,8 +1,12 @@
 <?php
-
 require_once("../../vendor/autoload.php");
 
-use Tests\Test;
+use Debian\MvcTemplate\Routes\Router;
 
+use Debian\MvcTemplate\Controllers\Controller;
 
-Test::views();
+$router = new Router;
+
+$router->get("/", [Controller::class, 'index']);
+
+$router->run();
