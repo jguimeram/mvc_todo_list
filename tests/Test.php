@@ -46,4 +46,9 @@ class Test
 
         $cn->deleteTask();
     }
+
+    public static function views()
+    {
+        require("../Views/layout.php");
+    }
 }
