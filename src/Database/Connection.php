@@ -16,7 +16,7 @@ class Connection
     private $password = 'admin84';
 
 
-    public function __construct()
+    public function database()
     {
         try {
             $this->pdo = new PDO($this->dsn, $this->username, $this->password);
@@ -25,10 +25,6 @@ class Connection
             // Handle connection error
             die("Connection failed: " . $e->getMessage());
         }
-    }
-
-    public function get()
-    {
         return $this->pdo;
     }
 }

@@ -13,17 +13,16 @@ class Model
     protected $pdo;
 
     protected array $args;
-    public function __construct($args)
+    public function __construct()
     {
-        $this->args = $args;
-    }
-    public function setDatabaseConnection(Connection $db)
-    {
-        $this->pdo = $db->get();
+        $db = new Connection;
+        $this->pdo = $db->database();
     }
 
-    public function save()
+    public function save($args)
     {
+        $this->args = $args;
+
         $columns = $this->setColumns();
 
         $values = $this->setValues();
@@ -45,11 +44,13 @@ class Model
         $this->execute();
     }
 
-    public function all()
+    public function all(): array
     {
         $this->query = "SELECT * from $this->table";
         $stmt = $this->pdo->prepare($this->query);
-        return $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
     }
 
     public function delete()

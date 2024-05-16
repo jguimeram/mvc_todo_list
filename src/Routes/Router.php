@@ -27,12 +27,21 @@ class Router
             $fn = $this->post[$url] ?? null;
         }
 
+
         if ($fn) {
-            call_user_func($fn, $this);
+            $controller = $fn[0];
+            $action = $fn[1];
+            $this->controllerInstance($controller, $action);
         } else {
             http_response_code(404);
-            // header('Location: /404');
+            header('Location: /');
         }
+    }
+
+    private function controllerInstance($controller, $action)
+    {
+        $classInstance = new $controller;
+        call_user_func([$classInstance, $action], $this);
     }
 
     public function render($view, array|null $data = [])

@@ -1,8 +1,4 @@
-
-CREATE DATABASE todolist IF NOT EXISTS;
 USE todolist;
-
-TRUNCATE TABLE Tasks IF NOT EXISTS;
 
 INSERT INTO Tasks (TaskName, Description, DueDate, Priority, Status) VALUES
 ('Task 1', 'Description for Task 1', '2024-06-01', 'High', 'InProgress'),

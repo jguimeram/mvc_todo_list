@@ -11,17 +11,21 @@ class Controller
     protected $model;
     protected $task;
 
-    public function createTask($task)
+    public function __construct()
     {
-        $this->task = $task;
-        $this->model = new Model($this->task);
+        $this->model = new Model();
     }
 
     public function index(Router $router)
     {
-        $this->model->all();
-        $router->render('home/index');
+        $data = $this->model->all();
+        $router->render('home/index', $data);
     }
+
+    public function create(Router $router)
+    {
+    }
+
     /* public function setTask(array $newTask)
     {
         $this->task = $newTask;

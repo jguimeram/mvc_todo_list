@@ -10,8 +10,4 @@ class Tasks  extends Model
 
     protected string $table = "Tasks";
     protected string $query;
-
-    public function __construct(public array $args)
-    {
-    }
 }

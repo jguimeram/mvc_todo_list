@@ -10,7 +10,7 @@
                     <div class="card-body p-4">
 
                         <h4 class="text-center my-3 pb-3">To Do App</h4>
-                        <form class="mb-4 pb-2" method="POST" action="task">
+                        <form class="mb-4 pb-2" method="POST" action="create">
                             <div class="col-12">
                                 <div data-mdb-input-init class="form-outline">
                                     <label class="form-label" for="form1">Enter a task here</label>
