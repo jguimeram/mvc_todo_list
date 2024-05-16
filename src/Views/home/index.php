@@ -33,7 +33,6 @@
                                     class="btn btn-primary">Add</button>
                             </div>
                         </form>
-
                         <table class="table mb-4">
                             <thead>
                                 <tr>
@@ -46,21 +45,32 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($data as $dt) : ?>
                                 <tr>
-                                    <th scope="row"><a href="#">1</a></th>
-                                    <td>Buy groceries for next week</td>
+                                    <th scope="row"><a href="#"><?php echo $dt["ID"] ?></a></th>
+                                    <td><?php echo $dt["TaskName"] ?></td>
                                     <td>
-                                        <select name="status" id="">
-                                            <option value="todo">Todo</option>
-                                            <option value="inProgress">In progress</option>
-                                            <option value="completed">Completed</option>
+                                        <select name='status' id=''>
+                                            <?php $status0ptions = array('Todo' => 'Todo', 'InProgress' => 'In Progress', 'Completed' => 'Completed'); ?>
+
+                                            <?php foreach ($status0ptions as $key => $value) : ?>
+                                            <option <?php echo $selected = ($dt["Status"] === $key) ? "selected" : "" ?>
+                                                value=<?php echo $key; ?>>
+                                                <?php echo $value; ?>
+                                            </option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </td>
                                     <td>
-                                        <select name="priority" id="">
-                                            <option value="low">Todo</option>
-                                            <option value="medium">In progress</option>
-                                            <option value="high">Completed</option>
+                                        <select name='priority' id=''>
+                                            <?php $priority0ptions = array('Low' => 'Low', 'Medium' => 'Medium', 'High' => 'High'); ?>
+                                            <?php foreach ($priority0ptions as $key => $value) : ?>
+                                            <option
+                                                <?php echo $selected = ($dt["Priority"] === $key) ? "selected" : "" ?>
+                                                value=<?php echo $key; ?>>
+                                                <?php echo $value; ?>
+                                            </option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </td>
                                     <td>
@@ -69,8 +79,11 @@
                                         <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                             class="btn btn-success p-1 ms-3">Finished</button>
                                     </td>
-                                    <td>15/05/2024</td>
+                                    <td><?php echo $dt["DueDate"] ?></td>
                                 </tr>
+                                <?php
+                                endforeach;
+                                ?>
                                 <!-- more elements -->
                             </tbody>
                         </table>
