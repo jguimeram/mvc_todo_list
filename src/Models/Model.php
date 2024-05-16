@@ -2,6 +2,7 @@
 
 namespace Debian\MvcTemplate\Models;
 
+use PDO;
 use Debian\MvcTemplate\Database\Connection;
 
 class Model
@@ -40,10 +41,11 @@ class Model
         $this->execute();
     }
 
-    public function select()
+    public function all()
     {
         $this->query = "SELECT * from $this->table";
-        return $this->execute();
+        $stmt = $this->pdo->prepare($this->query);
+        return $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 

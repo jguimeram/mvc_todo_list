@@ -8,16 +8,17 @@ use Debian\MvcTemplate\Routes\Router;
 
 class Controller
 {
-    protected array $task;
     protected $model;
 
-    public static function index(Router $router)
+    public function __construct(public array $task)
     {
-        $router->render('home/index');
+        $this->model = new Model;
     }
-    public function __construct(Model $model)
+
+    public function index(Router $router)
     {
-        $this->model = $model;
+        $this->model->all();
+        $router->render('home/index');
     }
     public function setTask(array $newTask)
     {
@@ -42,10 +43,5 @@ class Controller
     public function deleteTask()
     {
         $this->model->delete();
-    }
-
-    public function find()
-    {
-        $this->model->select();
     }
 }
