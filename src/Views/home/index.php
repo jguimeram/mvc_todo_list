@@ -76,8 +76,6 @@
                                     <td>
                                         <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                             class="btn btn-danger p-1">Delete</button>
-                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init
-                                            class="btn btn-success p-1 ms-3">Finished</button>
                                     </td>
                                     <td><?php echo $dt["DueDate"] ?></td>
                                 </tr>

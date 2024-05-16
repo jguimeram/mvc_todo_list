@@ -21,8 +21,9 @@ class TaskController extends Controller
 
     public function create(Router $router)
     {
-        $this->model->save($_POST);
-        $this->redirect();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->model->save($_POST);
+        }
     }
 
     public function redirect()
