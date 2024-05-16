@@ -9,10 +9,12 @@ use Debian\MvcTemplate\Routes\Router;
 class Controller
 {
     protected $model;
+    protected $task;
 
-    public function __construct(public array $task)
+    public function createTask($task)
     {
-        $this->model = new Model;
+        $this->task = $task;
+        $this->model = new Model($this->task);
     }
 
     public function index(Router $router)
@@ -20,7 +22,7 @@ class Controller
         $this->model->all();
         $router->render('home/index');
     }
-    public function setTask(array $newTask)
+    /* public function setTask(array $newTask)
     {
         $this->task = $newTask;
     }
@@ -43,5 +45,5 @@ class Controller
     public function deleteTask()
     {
         $this->model->delete();
-    }
+    } */
 }

@@ -12,7 +12,11 @@ class Model
     protected string $query;
     protected $pdo;
 
-    protected array $args = [];
+    protected array $args;
+    public function __construct($args)
+    {
+        $this->args = $args;
+    }
     public function setDatabaseConnection(Connection $db)
     {
         $this->pdo = $db->get();
@@ -47,7 +51,6 @@ class Model
         $stmt = $this->pdo->prepare($this->query);
         return $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 
     public function delete()
     {
